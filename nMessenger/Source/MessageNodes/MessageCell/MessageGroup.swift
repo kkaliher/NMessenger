@@ -37,6 +37,8 @@ open class MessageGroup: GeneralMessengerCell {
     open var animationDelay: TimeInterval = 0
     /** Avatar new message animation speed */
     open var avatarAnimationSpeed: TimeInterval = 0.15
+    /** Space between cells */
+    open var messageSpacing: CGFloat = 4
     
     /**
      Spacing around the avatar
@@ -404,7 +406,7 @@ open class MessageGroup: GeneralMessengerCell {
                 message.messageOffset = 0
             }
         } else {
-            message.cellPadding = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+            message.cellPadding = UIEdgeInsets(top: messageSpacing, left: 0, bottom: 0, right: 0)
             if let message = message as? MessageNode {
                 message.contentNode?.backgroundBubble = message.contentNode?.bubbleConfiguration.getSecondaryBubble()
                 message.isIncomingMessage = self.isIncomingMessage
